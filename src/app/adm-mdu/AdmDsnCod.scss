@@ -1,0 +1,236 @@
+$MynClrVar:purple;
+
+.MynBgdClrCls
+{
+	background:$MynClrVar;
+	color:white;
+}
+
+header
+{
+	@extend .MynBgdClrCls;
+	height: 75px;
+	box-shadow: 0 4px 4px 4px rgba(0,0,0,0.2);
+}
+
+aside
+{
+	@extend .MynBgdClrCls;
+	margin:20px;
+	margin-right:0px;
+	width:200px;
+	box-shadow: 0 4px 4px 4px rgba(0,0,0,0.2);
+}
+
+section
+{
+	box-shadow: 0 4px 4px 4px rgba(0,0,0,0.2);
+	background: #f1f1f1;
+	margin:20px;
+	padding: 20px;
+	flex: 1;
+}
+
+.IknTxtCls
+{
+	display: flex;
+	align-items: center;
+	vertical-align: center;
+}
+
+.DspFlxCls
+{
+	display:flex;
+	flex-wrap: wrap;
+}
+
+.DshBodBtnCls
+{
+	@extend .MynBgdClrCls;
+	border-radius: 50px; 
+	padding: 10px 40px;
+}
+
+.DshBodIptCls
+{
+	border:2px solid #CCC;
+	border-radius: 50px; 
+	padding: 10px 16px;
+	margin: 8px;
+	margin-top:0; 
+}
+
+.DshBodLblCls
+{
+	margin-left: 24px;
+	color:$MynClrVar;
+}
+
+#SchIptUid
+{
+	margin: 0px;
+	min-width: 400px;
+	border:2px solid $MynClrVar;
+	padding-right: 125px;
+}
+
+#SchBtnUid
+{
+	position: absolute;
+	right: 2px;
+    top: 2px;
+	border: none;
+	padding: 10px 20px;
+}
+
+#LgoDivUid
+{
+	position: absolute;
+	top:20px;
+	left:20px;
+}
+
+#PflDivUid
+{
+	position: absolute;
+	top:20px;
+	right:20px;
+	width:200px;
+}
+
+#DrpDwnMnuDivUid
+{
+	display: none;
+	@extend .MynBgdClrCls;
+	width:200px;
+	box-shadow: 0 2px 2px 2px rgba(0,0,0,0.2);
+}
+
+#PflDivUid:hover #DrpDwnMnuDivUid
+{
+	display: block;
+}
+
+.MnuDivCls
+{
+	z-index: 10;
+}
+
+.MnuDivCls a
+{
+	display: flex;
+	height: 50px;
+	padding: 10px;
+	border-bottom: 1px solid #CCC;
+	transition: 0.5s;
+}
+
+.MnuDivCls a:hover
+{
+	background: rgba(0,0,0,0.2);
+}
+
+.BigIknCls
+{
+	font-size: 32px;
+    color: #CCC;
+    padding: 0 8px;
+}
+
+.BitIknCls
+{
+	font-size: 16px;
+	color: #CCC;
+	padding: 0 8px;
+}
+
+.SkdBodCls
+{
+	height: 80px !important;
+	background: rgba(0,0,0,0.2);
+}
+
+.DshBodDivCls
+{
+	@extend .MynBgdClrCls;
+	width: 200px;
+	height:200px;
+	border:2px solid grey;
+	text-align: center;
+	margin:20px;
+	transition: 1s;
+
+	i 
+	{
+		margin-top: 20px;
+		font-size: 80px;
+	}
+	
+	h1
+	{
+		font-size: 40px;
+	}
+}
+
+.DshBodDivCls:hover
+{
+	transform: scale(1.2);
+	filter:brightness(80%);
+}
+
+.PrdTblCls
+{
+	tr
+	{
+		border-bottom: 1px solid grey;
+	}
+
+	tr:first-child()
+	{
+		border-top: 2px solid grey;
+		border-bottom: 2px solid grey;
+	}
+
+	tr:last-child()
+	{
+		border-bottom: 2px solid grey;
+	}
+
+	td 
+	{
+		padding: 10px;
+	}
+
+	tr:nth-child(odd)
+	{
+		background-color: $MynClrVar + 200;
+	}
+
+	tr:nth-child(even)
+	{
+		background-color: $MynClrVar + 220;
+	}
+}
+
+.GrdDivCls
+{
+	display: flex;
+	flex-wrap: wrap;
+
+	div
+	{
+		width: 30%;
+		height: auto;
+		padding: 20px;
+		background-color: $MynClrVar + 200;
+		text-align: center;
+		box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.2);
+		margin: 16px;
+
+		header
+		{
+			height: auto;
+			padding: 10px;
+		}
+	}
+}

@@ -1,0 +1,106 @@
+<pec>
+	<div style="display: flex;justify-content: space-between;margin-bottom: 10px;">
+		<h2 style="background:none">{{BodNamVar}} List</h2>
+		<div style="position:relative">
+			<input type="search" id="SchIptUid" class="DshBodIptCls" placeholder="Search {{BodNamVar}}"
+				[(ngModel)]="SchIptNgsVav">
+			<button id="SchBtnUid" class="DshBodBtnCls">
+				Search &nbsp;&nbsp;
+				<i class="fas fa-search"></i></button>
+		</div>
+		<button class="DshBodBtnCls" data-toggle="modal" data-target="#NquPrdPopBoxUid"
+			(click)="InlPrdItmFnc()">
+			<i class="fas fa-plus"></i>
+			&nbsp;&nbsp;Add {{BodNamVar}}</button>
+	</div>
+	<div class="GrdDivCls">
+		<div *ngFor="let ItmVar of PrdAryVar | DefNrySchFlt:'TtlVak':SchIptNgsVav; let IdxVar=index">
+			<header>
+				<h2>{{ItmVar.TtlVak}}</h2>
+			</header>
+			<br>
+			<h3>{{ItmVar.DtlVak}}</h3>
+			<h4>{{ItmVar.AmtVak}}</h4>
+			<br>
+			<footer>
+				<a><i class="fas fa-edit BitIknCls" style="color:green" data-toggle="modal"
+						data-target="#NquPrdPopBoxUid" (click)="EdtPrdBtnKlkFnc(IdxVar)"></i></a>
+				<a><i class="fas fa-trash BitIknCls" style="color:red" data-toggle="modal"
+						data-target="#DquPrdPopBoxUid" (click)="DquPrdBtnKlkFnc(IdxVar)"></i></a>
+			</footer>
+		</div>
+	</div>
+	<br>
+	<button class="DshBodBtnCls" (click)="DldJryTooCsvFylFnc()">
+		<i class="far fa-file-excel"></i>&nbsp;&nbsp;
+		Export to CSV </button>
+</pec>
+
+<div class="modal fade" id="NquPrdPopBoxUid">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 class="modal-title">{{ NquUquModVar == "Nqu" ? "Add" : "Edit"}} {{BodNamVar}}</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body">
+				<form>
+					<label>
+						<div class="DshBodLblCls">Id</div>
+						<input type="text" class="DshBodIptCls" placeholder="Id" name="PrdUidHtmVav"
+							[(ngModel)]="PrdItmVar.UidVak" #PrdUidHtmVav="ngModel">
+					</label>
+					<label>
+						<div class="DshBodLblCls">Title</div>
+						<input type="text" class="DshBodIptCls" placeholder="Title" name="PrdNamHtmVav"
+							[(ngModel)]="PrdItmVar.TtlVak" #PrdNamHtmVav="ngModel">
+					</label>
+					<label>
+						<div class="DshBodLblCls">Detail</div>
+						<input type="text" class="DshBodIptCls" placeholder="Detail" name="PrdMblHtmVav"
+							[(ngModel)]="PrdItmVar.DtlVak" #PrdMblHtmVav="ngModel">
+					</label>
+					<label>
+						<div class="DshBodLblCls">Amount</div>
+						<input type="number" class="DshBodIptCls" placeholder="Amount" name="PrdMylHtmVav"
+							[(ngModel)]="PrdItmVar.AmtVak" #PrdMylHtmVav="ngModel">
+					</label>
+				</form>
+			</div>
+
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="button" class="DshBodBtnCls" data-dismiss="modal"
+					(click)="SquPrdBtnKlkFnc()">Save</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="DquPrdPopBoxUid">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 class="modal-title">Delete {{BodNamVar}}</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+
+			<div class="modal-body">
+				<p>Are you sure you want to Delete ?</p>
+			</div>
+
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="button" class="DshBodBtnCls" data-dismiss="modal" (click)="DquPrdCnfBtnKlkFnc()"
+					style="background: red">Delete</button>
+				<button type="button" class="DshBodBtnCls" data-dismiss="modal" style="background: red">Cancel</button>
+			</div>
+		</div>
+	</div>
+</div>

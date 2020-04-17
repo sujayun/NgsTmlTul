@@ -1,0 +1,82 @@
+<header>
+	<!-- <img src="Logo.jpg" alt="Logo" id="LgoImjUid"> -->
+	<div id="LgoDivUid" class="IknTxtCls">
+		<div>
+			<!-- <img src="profile.jpg" alt="Profile"> -->
+			<i class="fab fa-joomla BigIknCls"></i>
+		</div>
+		<div>
+			{{ CpnNamVar }}
+		</div>
+	</div>
+
+	<div id="PflDivUid">
+		<div id="PflDrpDwnDivUid" class="IknTxtCls">
+			<div>
+				<!-- <img src="profile.jpg" alt="Profile"> -->
+				<i class="fas fa-user-circle BigIknCls"></i>
+			</div>
+			<div>
+				{{UsrNamVar}}
+			</div>
+		</div>
+		<div id="DrpDwnMnuDivUid" class="MnuDivCls">
+			<a>Account</a>
+			<a>Profile</a>
+			<a (click)="SkdBodIdxVar=8">Logout</a>
+		</div>
+	</div>
+</header>
+
+<div class="DspFlxCls">
+	<aside>
+		<nav id="SydMnuDivUid" class="MnuDivCls">
+			<a class="IknTxtCls" *ngFor="let ItmVar of NavBarAryVar; let IdxVar=index" 
+				(click)="SkdBodIdxVar=IdxVar" 
+				[ngClass]="{SkdBodCls:SkdBodIdxVar==IdxVar}">
+				<i class="fas fa-{{ ItmVar.IknVak }} BitIknCls"></i> 
+				<t>{{ ItmVar.TxtVak }}</t>
+			</a>
+		</nav>
+	</aside>
+
+	<section>
+		<div *ngIf="SkdBodIdxVar==0">
+			<adm-dsh-bod-kom></adm-dsh-bod-kom>
+		</div>
+		<div *ngIf="SkdBodIdxVar==1">
+			<adm-prd-tbl-kom></adm-prd-tbl-kom>
+		</div>
+		<div *ngIf="SkdBodIdxVar==2">
+			<adm-prd-mat-tbl-kom></adm-prd-mat-tbl-kom>
+		</div>
+		<div *ngIf="SkdBodIdxVar==3">
+			<adm-prd-grd-kom></adm-prd-grd-kom>
+		</div>
+		<div *ngIf="SkdBodIdxVar==4">
+			Products
+		</div>
+		<div *ngIf="SkdBodIdxVar==5">
+			Orders
+		</div>
+		<div *ngIf="SkdBodIdxVar==6">
+			Analytics
+		</div>
+		<div *ngIf="SkdBodIdxVar==7">
+			Setting
+		</div>
+		<div *ngIf="SkdBodIdxVar==8">
+			<center>
+				<br><br><h1>Are you sure you want to logout ?</h1><br><br>
+				<button (click)="AdmSgtFnc()" class="DshBodBtnCls"
+					style="margin-right: 40px; background-color: red;"> Yop Logout </button>
+				<button (click)="SkdBodIdxVar=0" class="DshBodBtnCls"
+					style="margin-left: 40px; background-color: green ;"> Nop Leave it</button>
+			</center>
+		</div>
+	</section>
+</div>
+
+<footer>
+
+</footer>
